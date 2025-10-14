@@ -1,0 +1,59 @@
+services:
+  - type: web
+    name: mcphub-all
+    runtime: image
+    image:
+      url: maheshrajamani/mcphub-all:v1.1.7
+    plan: free
+    region: oregon
+    healthCheckPath: /q/health/live
+    envVars:
+      # Authentication Configuration
+      - key: MCPHUB_AUTH_USERNAME
+        value: admin
+      - key: MCPHUB_AUTH_PASSWORD
+        generateValue: true
+
+      # Port Configuration
+      - key: PORT
+        value: 3000
+
+      # Backend Configuration
+      - key: QUARKUS_HTTP_PORT
+        value: 8080
+      - key: QUARKUS_HTTP_HOST
+        value: 0.0.0.0
+
+      # Java Configuration
+      - key: JAVA_OPTS
+        value: -XX:+UseContainerSupport -XX:MaxRAMPercentage=75.0 -XX:+ExitOnOutOfMemoryError
+
+      # MCP Storage
+      - key: MCP_CONFIG_DIRECTORY
+        value: /opt/mcp/config
+      - key: MCP_SECRETS_DIRECTORY
+        value: /opt/mcp/secrets
+
+      # Python Engine
+      - key: ENGINE_PORT
+        value: 8082
+      - key: ENGINE_HOST
+        value: 0.0.0.0
+      - key: ENGINES_PYTHON_URL
+        value: http://localhost:8082
+      - key: ENGINES_PYTHON_ENABLED
+        value: true
+      - key: ENGINES_PYTHON_TIMEOUT
+        value: 30
+
+      # Application Settings
+      - key: BACKEND_URL
+        value: http://localhost:8080
+      - key: MCP_ENVIRONMENT
+        value: production
+      - key: LOG_LEVEL
+        value: info
+
+      # Storage Configuration
+      - key: MCP_STORAGE_PROVIDER
+        value: memory
