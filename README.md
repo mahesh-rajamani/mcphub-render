@@ -58,10 +58,22 @@ You can also find your password in the environment variables:
 
 ## 🌐 Accessing MCPHub
 
-Once deployed, your MCPHub instance will be available at:
+Once deployed, your MCPHub instance will be available at a unique Render URL.
 
+### Finding Your MCPHub URL
+
+1. Go to your [Render Dashboard](https://dashboard.render.com/)
+2. Click on your newly deployed service (named `mcphub-all`)
+3. Click on **"Events"** in the left sidebar
+4. Look for deployment events that show your service URL
+5. Your MCPHub URL will be in the format:
+   ```
+   https://your-service-name.onrender.com
+   ```
+
+**Example:**
 ```
-https://your-service-name.onrender.com
+https://mcphub-all-xyz123.onrender.com
 ```
 
 ### First-Time Login

@@ -3,7 +3,7 @@ services:
     name: mcphub-all
     runtime: image
     image:
-      url: maheshrajamani/mcphub-all:v1.0.0-rc3
+      url: maheshrajamani/mcphub-all:v1.0.0
     plan: free
     region: oregon
     healthCheckPath: /q/health/live
